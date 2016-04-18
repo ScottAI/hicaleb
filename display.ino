@@ -1,7 +1,43 @@
+/*
+ 6-13-2011
+ Spark Fun Electronics 2011
+ Nathan Seidle
+ 
+ This code is public domain but you buy me a beer if you use this and we meet someday (Beerware license).
+
+ 4 digit 7 segment display:
+ http://www.sparkfun.com/products/9483
+ Datasheet: 
+ http://www.sparkfun.com/datasheets/Components/LED/7-Segment/YSD-439AR6B-35.pdf
+
+ This is an example of how to drive a 7 segment LED display from an ATmega without the use of current limiting resistors.
+ This technique is very common but requires some knowledge of electronics - you do run the risk of dumping too 
+ much current through the segments and burning out parts of the display. If you use the stock code you should be ok, but 
+ be careful editing the brightness values.
+ 
+ This code should work with all colors (red, blue, yellow, green) but the brightness will vary from one color to the next
+ because the forward voltage drop of each color is different. This code was written and calibrated for the red color.
+
+ This code will work with most Arduinos but you may want to re-route some of the pins.
+
+ 7 segments
+ 4 digits
+ 1 colon
+ =
+ 12 pins required for full control 
+
+ 17 April 2016 
+ Updated by Brandon Sharitt and Caleb Sharitt. Abby Sharitt, didn't help, but Caleb wanted it to say hi to his sister too.
+ Changes public domain too. You can also buy me a beer if you want. Don't buy Caleb a beer until 2031.
+*/
+
 int digit1 = 11; //PWM Display pin 1
 int digit2 = 10; //PWM Display pin 2
 int digit3 = 9; //PWM Display pin 6
 int digit4 = 6; //PWM Display pin 8
+
+//Pin mapping from Arduino to the ATmega DIP28 if you need it
+//http://www.arduino.cc/en/Hacking/PinMapping
 int segA = A1; //Display pin 14
 int segB = 3; //Display pin 16
 int segC = 4; //Display pin 13
